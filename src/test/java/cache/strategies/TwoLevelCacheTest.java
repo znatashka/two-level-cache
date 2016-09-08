@@ -7,8 +7,7 @@ import org.mockito.Mockito;
 import testutils.KeyValue;
 import testutils.ReflectionTestUtils;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 @SuppressWarnings("unchecked")
