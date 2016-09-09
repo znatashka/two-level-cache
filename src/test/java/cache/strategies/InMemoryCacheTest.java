@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class InMemoryCacheTest {
 
-    private ICache<KeyValue, KeyValue> inMemoryCache;
+    private Cache<KeyValue, KeyValue> inMemoryCache;
 
     @Before
     public void setUp() {

@@ -15,8 +15,8 @@ import static org.mockito.Mockito.*;
 public class TwoLevelCacheTest {
 
     private TwoLevelCache<KeyValue, KeyValue> twoLevelCache;
-    private ICache<KeyValue, KeyValue> inMemoryCache = mock(InMemoryCache.class);
-    private ICache<KeyValue, KeyValue> fileSystemCache = mock(FileSystemCache.class);
+    private Cache<KeyValue, KeyValue> inMemoryCache = mock(InMemoryCache.class);
+    private Cache<KeyValue, KeyValue> fileSystemCache = mock(FileSystemCache.class);
 
     @Before
     public void setUp() throws Exception {

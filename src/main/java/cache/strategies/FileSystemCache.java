@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-class FileSystemCache<K, V> implements ICache<K, V> {
+class FileSystemCache<K, V> implements Cache<K, V> {
     private static final Logger log = LoggerFactory.getLogger(FileSystemCache.class);
 
     private int maxLength;

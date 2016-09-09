@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-class InMemoryCache<K, V> implements ICache<K, V> {
+class InMemoryCache<K, V> implements Cache<K, V> {
     private static final Logger log = LoggerFactory.getLogger(InMemoryCache.class);
 
     private int maxLength;
