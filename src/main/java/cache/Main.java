@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        InitData initData = InitData.initialize(args);
+        InitData initData = InitData.initialize();
         log.info("{}", initData);
 
         TwoLevelCache<Integer, String> twoLevelCache = new TwoLevelCache<>(

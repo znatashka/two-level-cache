@@ -1,29 +1,36 @@
 package cache.data;
 
+import cache.utils.InitDataUtils;
+import cache.utils.Tools;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyString;
 
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({InitDataUtils.class, Tools.class})
 public class InitDataTest {
 
     @Test
     public void initialize() throws Exception {
         // PREPARE
-        int maxLengthInMemoryCache = 10;
-        int maxLengthFileSystemCache = 15;
-        String fileSystemCachePath = "fake_path";
-        String[] args = {
-                String.valueOf(maxLengthInMemoryCache),
-                String.valueOf(maxLengthFileSystemCache),
-                fileSystemCachePath
-        };
+        PowerMockito.mockStatic(InitDataUtils.class);
+        PowerMockito.when(InitDataUtils.checkBooleanAnswer(anyString())).thenReturn(true);
+        PowerMockito.when(InitDataUtils.checkIntegerAnswer(anyString())).thenReturn(5);
+
+        PowerMockito.mockStatic(Tools.class);
+        PowerMockito.when(Tools.readAnswerFromConsole(anyString())).thenReturn("fake_path");
 
         // ACT
-        InitData initData = InitData.initialize(args);
+        InitData initData = InitData.initialize();
 
         // ASSERT
-        assertEquals(maxLengthInMemoryCache, initData.getMaxLengthInMemoryCache());
-        assertEquals(maxLengthFileSystemCache, initData.getMaxLengthFileSystemCache());
-        assertEquals(fileSystemCachePath, initData.getFileSystemCachePath());
+        assertEquals(5, initData.getMaxLengthInMemoryCache());
+        assertEquals(5, initData.getMaxLengthFileSystemCache());
+        assertEquals("fake_path", initData.getFileSystemCachePath());
     }
 }
